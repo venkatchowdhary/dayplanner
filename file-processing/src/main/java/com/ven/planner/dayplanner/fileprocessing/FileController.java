@@ -33,7 +33,6 @@ public class FileController {
 
     @PostMapping("/multiple-upload")
     public boolean upload(@RequestParam("file") MultipartFile[] files) throws IOException {
-
         Arrays.stream(files).forEach(file -> {
             try {
                 file.transferTo(new File(join( File.separator, UPLOAD_DIR, file.getOriginalFilename())));
